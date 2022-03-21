@@ -2,8 +2,8 @@ from matplotlib.figure import Figure
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from core.Entity.graph import Graph
-from core.Exception.ColumnNotFound import ColumnNotFound
+from loanprediction.core.Entity.graph import Graph
+from loanprediction.core.Exception.ColumnNotFound import ColumnNotFound
 
 
 class Visualizer:
