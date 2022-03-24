@@ -1,2 +1,6 @@
-class ColumnNotFound(Exception):
-    pass
+from loanprediction.core.Exception.base_exception import BaseCoreException
+
+
+class ColumnNotFound(BaseCoreException):
+    type = "core"
+    message = "Column does not exist in the csv file"
