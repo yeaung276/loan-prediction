@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
+import loanprediction.config as config
 from loanprediction.application.depends.session import get_session
 from loanprediction.application.response import Response
 from loanprediction.infrastructure.exceptions.sessions_exception import SessionNotExist
@@ -14,7 +15,7 @@ async def start_session() -> Response:
     response = Response(
         status_code=status.HTTP_200_OK, content={"data": "Session created"}
     )
-    response.set_cookie("session", new_session.key, max_age=400)
+    response.set_cookie(config.cookie_name, new_session.key, max_age=400)
     return response
 
 
@@ -29,4 +30,5 @@ async def stop_session(session: Session = Depends(get_session)) -> Response:
     response = Response(
         status_code=status.HTTP_200_OK, content={"data": "Session ended"}
     )
+    response.delete_cookie(config.cookie_name)
     return response
