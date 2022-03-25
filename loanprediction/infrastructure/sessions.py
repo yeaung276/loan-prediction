@@ -1,17 +1,18 @@
+from typing import Dict
 import uuid
 
 from loanprediction.infrastructure.exceptions.sessions_exception import SessionNotExist
 
 
 class SessionsHolder:
-    __sessions: dict = {}
+    __sessions: Dict[str, "Session"] = {}
 
     @classmethod
     def has_session(cls, key: str) -> bool:
         return key in cls.__sessions
 
     @classmethod
-    def get_session(cls, key: str) -> object:
+    def get_session(cls, key: str) -> "Session":
         try:
             return cls.__sessions[key]
         except KeyError as error:

@@ -1,7 +1,5 @@
-from typing import Any
-from pydantic import BaseModel
+from starlette.responses import JSONResponse as BaseResponse
 
 
-class Response(BaseModel):
-    status: int
-    data: Any
+class Response(BaseResponse):
+    pass
