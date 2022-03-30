@@ -19,3 +19,7 @@ def dev() -> None:
         log_level=config.dev_log_level,
         reload=True,
     )
+
+
+if __name__ == "__main__":
+    main()
