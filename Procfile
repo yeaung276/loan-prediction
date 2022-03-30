@@ -1,1 +1,1 @@
-web: loanprediction.main:main
+web: python loanprediction.main:main
