@@ -2,7 +2,9 @@ name: Update requirements.txt [bot]
 
 on:
   push:
-    branches: ["!master"]
+    branches:
+      - "**"
+      - "!master"
 
 jobs:
   build:
