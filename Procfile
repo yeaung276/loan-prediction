@@ -1,0 +1,1 @@
+web: loanprediction.main:main
