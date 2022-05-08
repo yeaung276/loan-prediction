@@ -15,7 +15,13 @@ async def start_session() -> Response:
     response = Response(
         status_code=status.HTTP_200_OK, content={"data": "Session created"}
     )
-    response.set_cookie(config.cookie_name, new_session.key, max_age=400)
+    response.set_cookie(
+        config.cookie_name,
+        new_session.key,
+        max_age=400,
+        samesite="Lax",
+        secure=False,
+    )
     return response
 
 
