@@ -22,13 +22,13 @@ class Visualizer:
         Returns:
           Graph: Graph obj holding exported figure
         """
-        figure = plt.figure()
         self.dataframe.isnull().sum(axis=1).value_counts().plot(
             kind="pie",
             title="Null Count Chart",
             label="Number of null value",
             autopct="%.2f",
         )
+        figure = plt.gcf()
         return Graph(figure)
 
     def graph_column(self, column: str) -> Graph:
@@ -50,6 +50,29 @@ class Visualizer:
             self.plot_categorical(graph_data, figure)
         else:
             self.plot_numerical(graph_data, figure)
+        return Graph(figure)
+
+    def cross_column_plot(self, xcolumn: str, ycolumn: str) -> Graph:
+        """Biveriate Analysis(counts)
+
+        Args:
+            column (str): column names of dataframe
+
+        Returns:
+            Graph: graph obj holding export figure
+        """
+
+        pd.crosstab(self.dataframe[xcolumn], self.dataframe[ycolumn]).plot(
+            kind="bar",
+            title="Cross-Column Analysis Chart",
+            label="Cross-Column Analysis",
+        )
+        figure = plt.gcf()
+        return Graph(figure)
+
+    def cross_column_numeric(self, xcolumn: str, ycolumn: str) -> Graph:
+        self.dataframe.boxplot(column=[ycolumn], by=xcolumn)
+        figure = plt.gcf()
         return Graph(figure)
 
     @staticmethod
