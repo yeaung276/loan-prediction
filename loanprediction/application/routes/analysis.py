@@ -1,9 +1,8 @@
 import pandas as pd
 from fastapi import APIRouter, UploadFile
 from loanprediction.application.depends.cookies import get_session, get_session_mock
-from loanprediction.application.responses.exception import NotFound
-from loanprediction.application.responses.response import GraphResponse, Response
-from loanprediction.core.Exception.ColumnNotFound import ColumnNotFound
+from loanprediction.application.responses import GraphResponse, Response, NotFound
+from loanprediction.core.Exception import ColumnNotFound
 from loanprediction.core.Service.visualization import Visualizer
 
 analysisServices = APIRouter(prefix="/analysis", tags=["analysis"])
@@ -39,10 +38,9 @@ def graph_column(column: str, session_id: str) -> GraphResponse:
     except ColumnNotFound as error:
         raise NotFound(error.message) from error
 
+
 @analysisServices.get("/columns")
 def get_columns(session_id: str) -> dict:
     session = get_session_mock(session_id)
     visualizer = session.get()
-    return {
-        'columns': visualizer.get_columns()
-    }
+    return {"columns": visualizer.get_columns()}

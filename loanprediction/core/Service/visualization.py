@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 from loanprediction.core.Entity.graph import Graph
-from loanprediction.core.Exception.ColumnNotFound import ColumnNotFound
+from loanprediction.core.Exception import ColumnNotFound
 
 
 class Visualizer:
