@@ -13,7 +13,6 @@ async def start_session() -> Response:
     new_session = Session()
     SessionsHolder.add_session(new_session)
     response = Response(
-        status_code=status.HTTP_200_OK,
         content={"data": {"message": "Session created", "session": new_session.key}},
     )
     response.set_cookie(
@@ -34,8 +33,6 @@ async def stop_session(session: Session = Depends(get_session)) -> Response:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail=error.message
         ) from error
-    response = Response(
-        status_code=status.HTTP_200_OK, content={"data": {"message": "Session ended"}}
-    )
+    response = Response(content={"data": {"message": "Session ended"}})
     response.delete_cookie(config.cookie_name)
     return response
