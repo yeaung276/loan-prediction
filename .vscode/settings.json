@@ -13,5 +13,5 @@
   "python.linting.lintOnSave": true,
   "python.linting.ignorePatterns": ["modal/*.py"],
   "python.formatting.provider": "black",
-  "mypy.runUsingActiveInterpreter": false,
+  "mypy.runUsingActiveInterpreter": true,
 }
