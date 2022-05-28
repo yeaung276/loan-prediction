@@ -11,5 +11,6 @@
   "python.linting.pylintEnabled": true,
   "python.linting.mypyEnabled": true,
   "python.linting.lintOnSave": true,
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "mypy.runUsingActiveInterpreter": true,
 }

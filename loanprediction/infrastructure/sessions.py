@@ -1,7 +1,11 @@
 from typing import Dict
 import uuid
+from loanprediction.core.Service.visualization import Visualizer
 
-from loanprediction.infrastructure.exceptions.sessions_exception import SessionNotExist
+from loanprediction.infrastructure.exceptions.sessions_exception import (
+    SessionNotExist,
+    SessionNotInitialized,
+)
 
 
 class SessionsHolder:
@@ -34,3 +38,12 @@ class SessionsHolder:
 class Session:
     def __init__(self) -> None:
         self.key = str(uuid.uuid4())
+        self.visualizer = None
+
+    def save(self, visualizer: Visualizer) -> None:
+        self.visualizer = visualizer
+
+    def get(self) -> Visualizer:
+        if self.visualizer is None:
+            raise SessionNotInitialized
+        return self.visualizer
