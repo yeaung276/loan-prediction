@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
-import loanprediction.config as config
-from loanprediction.application.depends.cookies import get_session
-from loanprediction.application.responses import Response, NotFound
-from loanprediction.infrastructure.exceptions.sessions_exception import SessionNotExist
-from loanprediction.infrastructure.sessions import Session, SessionsHolder
+import LoanPrediction.config as config
+from LoanPrediction.application.depends.cookies import get_session
+from LoanPrediction.application.responses import Response, NotFound
+from LoanPrediction.infrastructure.exceptions.sessions_exception import SessionNotExist
+from LoanPrediction.infrastructure.sessions import Session, SessionsHolder
 
 sessionServices = APIRouter(prefix="/session", tags=["session"])
 

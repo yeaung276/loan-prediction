@@ -1,9 +1,9 @@
 import pandas as pd
 from fastapi import APIRouter, UploadFile
-from loanprediction.application.depends.cookies import get_session, get_session_mock
-from loanprediction.application.responses import GraphResponse, Response, NotFound
-from loanprediction.core.Exception import ColumnNotFound
-from loanprediction.core.Service.visualization import Visualizer
+from LoanPrediction.application.depends.cookies import get_session, get_session_mock
+from LoanPrediction.application.responses import GraphResponse, Response, NotFound
+from LoanPrediction.core.Exception import ColumnNotFound
+from LoanPrediction.core.Service.visualization import Visualizer
 
 analysisServices = APIRouter(prefix="/analysis", tags=["analysis"])
 

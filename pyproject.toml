@@ -4,6 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["yeaung"]
 license = "MITOpenSource"
+packages = [
+    {include = "LoanPrediction"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -25,5 +28,5 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 test = 'tests.visualization:test'
-start = 'loanprediction.main:main'
-dev = 'loanprediction.main:dev'
+start = 'LoanPrediction.main:main'
+dev = 'LoanPrediction.main:dev'

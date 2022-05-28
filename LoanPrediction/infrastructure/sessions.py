@@ -1,8 +1,8 @@
 from typing import Dict
 import uuid
-from loanprediction.core.Service.visualization import Visualizer
+from LoanPrediction.core.Service.visualization import Visualizer
 
-from loanprediction.infrastructure.exceptions.sessions_exception import (
+from LoanPrediction.infrastructure.exceptions.sessions_exception import (
     SessionNotExist,
     SessionNotInitialized,
 )
