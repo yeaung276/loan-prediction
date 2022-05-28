@@ -1,4 +1,4 @@
-from loanprediction.infrastructure.exceptions.base_infra_exception import (
+from LoanPrediction.infrastructure.exceptions.base_infra_exception import (
     BaseInfrastructureException,
 )
 

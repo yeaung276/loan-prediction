@@ -1,6 +1,6 @@
 from PIL import Image
 import pandas as pd
-from loanprediction.core.Service.visualization import Visualizer
+from LoanPrediction.core.Service.visualization import Visualizer
 
 
 def test_whole_graph() -> None:
