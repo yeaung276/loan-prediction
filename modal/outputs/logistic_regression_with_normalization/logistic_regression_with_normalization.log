@@ -1,0 +1,10 @@
+Modal Summary
+==============
+name: logistic_regression_with_normalization
+description: trained with min/max normalization on LoanAmount, ApplicantIncome, CoapplicantIncome, Dependent, Loan_Amount_Term
+column_modification: NONE
+columns: ['Unnamed: 0', 'Dependents', 'ApplicantIncome', 'CoapplicantIncome', 'LoanAmount', 'Loan_Amount_Term', 'Credit_History', 'Gender_Female', 'Gender_Male', 'Married_No', 'Married_Yes', 'Education_Graduate', 'Education_Not Graduate', 'Self_Employed_No', 'Self_Employed_Yes', 'Property_Area_Rural', 'Property_Area_Semiurban', 'Property_Area_Urban']
+label: Loan_Status
+accuracy: 0.8048780487804879
+roc_accu: 0.7316860465116279
+End
