@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends
 import loanprediction.config as config
 from loanprediction.application.depends.cookies import get_session
-from loanprediction.application.response import Response
+from loanprediction.application.responses import Response, NotFound
 from loanprediction.infrastructure.exceptions.sessions_exception import SessionNotExist
 from loanprediction.infrastructure.sessions import Session, SessionsHolder
 
@@ -30,9 +30,7 @@ async def stop_session(session: Session = Depends(get_session)) -> Response:
     try:
         SessionsHolder.delete_session(session.key)
     except SessionNotExist as error:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail=error.message
-        ) from error
+        raise NotFound(message=error.message) from error
     response = Response(content={"data": {"message": "Session ended"}})
     response.delete_cookie(config.cookie_name)
     return response

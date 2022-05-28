@@ -1,3 +1,4 @@
+from typing import List
 from matplotlib.figure import Figure
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -12,6 +13,9 @@ class Visualizer:
     def __init__(self, dataframe: pd.DataFrame) -> None:
         self.dataframe = dataframe
 
+    def get_columns(self) -> List[str]:
+        return list(self.dataframe.columns)
+
     def graph_null(self) -> Graph:
         """graph amount of null number in each row as pie chart
 
@@ -19,14 +23,12 @@ class Visualizer:
           Graph: Graph obj holding exported figure
         """
         figure = plt.figure()
-        self.dataframe \
-            .isnull() \
-            .sum(axis=1) \
-            .value_counts() \
-            .plot(kind='pie',
-                  title="Null Count Chart",
-                  label='Number of null value',
-                  autopct='%.2f')
+        self.dataframe.isnull().sum(axis=1).value_counts().plot(
+            kind="pie",
+            title="Null Count Chart",
+            label="Number of null value",
+            autopct="%.2f",
+        )
         return Graph(figure)
 
     def graph_column(self, column: str) -> Graph:
@@ -37,7 +39,7 @@ class Visualizer:
           column (str): column name of dataframe
 
         Returns:
-          BytesIO: png file
+          Graph: graph obj holding export figure
         """
         figure = plt.figure(column)
         try:
@@ -62,8 +64,9 @@ class Visualizer:
     @staticmethod
     def plot_categorical(column: pd.Series, figure: Figure) -> None:
         axes = figure.add_subplot(111)
-        column.fillna('NULL').value_counts().plot(
-            kind='pie', subplots=True, autopct='%.2f', ax=axes)
+        column.fillna("NULL").value_counts().plot(
+            kind="pie", subplots=True, autopct="%.2f", ax=axes
+        )
 
     def plot_numerical(self, column: pd.Series, figure: Figure) -> None:
         axes1 = figure.add_subplot(211)
@@ -74,9 +77,9 @@ class Visualizer:
     @staticmethod
     def plot_numerical_nulls(column: pd.Series, axis: plt.Axes) -> None:
         null_count = column.copy()
-        null_count[null_count.notnull()] = 'Not Null'
-        null_count = null_count.fillna('Null')
-        null_count.value_counts().plot(kind='pie', autopct='%.2f', ax=axis)
+        null_count[null_count.notnull()] = "Not Null"
+        null_count = null_count.fillna("Null")
+        null_count.value_counts().plot(kind="pie", autopct="%.2f", ax=axis)
 
     @staticmethod
     def plot_numerical_statistics(column: pd.Series, axis: plt.Axes) -> None:
