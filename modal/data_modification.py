@@ -1,6 +1,7 @@
 import pandas as pd
 
 # configs
+SAVE_INTRMEDIARY_FILES = False
 RAW_DATA_PATH = "data"
 INTERMEDIATE_FILE_PATH = "modal/intermediary_files"
 FINAL_FILE_PATH = "modal/datas"
@@ -35,7 +36,8 @@ NORMALIZE_COLUMN = [
 
 def drop_columns(dataframe, columns):
     dataframe.drop(columns=columns, inplace=True)
-    dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_drop_unnecessary_col.csv")
+    if SAVE_INTRMEDIARY_FILES:
+        dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_drop_unnecessary_col.csv")
 
 
 def fill_null_values_columns(dataframe, mean_columns, mode_columns):
@@ -45,19 +47,22 @@ def fill_null_values_columns(dataframe, mean_columns, mode_columns):
         dataframe[column].fillna(dataframe[column].dropna().mode()[0], inplace=True)
     dataframe["Dependents"].replace("3+", 3, inplace=True)
     dataframe["Dependents"] = pd.to_numeric(dataframe["Dependents"])
-    dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_filled_null.csv")
+    if SAVE_INTRMEDIARY_FILES:
+        dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_filled_null.csv")
 
 
 def encode_categorical(dataframe, categorical_columns):
     dataframe = pd.get_dummies(dataframe, columns=categorical_columns)
-    dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_one_hot_encoded.csv")
+    if SAVE_INTRMEDIARY_FILES:
+        dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_one_hot_encoded.csv")
     return dataframe
 
 
 def encode_label(dataframe, column):
     dataframe[column].replace("Y", 1, inplace=True)
     dataframe[column].replace("N", 0, inplace=True)
-    dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_label_encoded.csv")
+    if SAVE_INTRMEDIARY_FILES:
+        dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_label_encoded.csv")
 
 
 def data_nomalization_min_max(dataframe, columns):
@@ -65,14 +70,16 @@ def data_nomalization_min_max(dataframe, columns):
         d_min = dataframe[column].min()
         d_max = dataframe[column].max()
         dataframe[columns] = (dataframe[columns] - d_min) / (d_max - d_min)
-    dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_normalized.csv")
+    if SAVE_INTRMEDIARY_FILES:
+        dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_normalized.csv")
 
 
 def data_nomalization_div_by_mean(dataframe, columns):
     for column in columns:
         mean = dataframe[column].mean()
         dataframe[columns] = dataframe[columns] / mean
-    dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_normalized.csv")
+    if SAVE_INTRMEDIARY_FILES:
+        dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_normalized.csv")
 
 
 # step: 1
