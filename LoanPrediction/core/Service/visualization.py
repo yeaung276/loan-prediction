@@ -1,4 +1,4 @@
-from typing import List
+from typing import Any, Dict, List
 from matplotlib.figure import Figure
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -69,6 +69,16 @@ class Visualizer:
         )
         figure = plt.gcf()
         return Graph(figure)
+
+    def get_data_info(self) -> Dict[str, Any]:
+        """For getting null info and data type info of a dataset
+        Returns:
+            Dictionary: containing infos
+        """
+        return {
+            "null_counts": self.dataframe.isnull().sum().to_dict(),
+            "statstics": self.dataframe.describe(),
+        }
 
     def cross_column_numeric(self, xcolumn: str, ycolumn: str) -> Graph:
         self.dataframe.boxplot(column=[ycolumn], by=xcolumn)

@@ -10,7 +10,7 @@ MODAL_NAME = "logistic_regression_with_mean_normalization"
 MODAL_DESCRIPTION = "trained with div mean normalization on LoanAmount, ApplicantIncome, CoapplicantIncome, Dependent, Loan_Amount_Term"
 TRAINING_DATA_PATH = "modal/datas/train_.csv"
 Y_LABEL = "Loan_Status"
-OUTPUT_PATH = "modal/outputs"
+OUTPUT_PATH = "modal/intermediary_outputs"
 
 data = pd.read_csv(TRAINING_DATA_PATH)
 
