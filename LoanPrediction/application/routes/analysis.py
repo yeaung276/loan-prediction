@@ -1,3 +1,4 @@
+from typing import Any, Dict
 import pandas as pd
 from fastapi import APIRouter, UploadFile
 from LoanPrediction.application.depends.cookies import get_session, get_session_mock
@@ -44,3 +45,10 @@ def get_columns(session_id: str) -> dict:
     session = get_session_mock(session_id)
     visualizer = session.get()
     return {"columns": visualizer.get_columns()}
+
+
+@analysisServices.get("/info")
+def get_info() -> Any:
+    # session = get_session_mock(session_id)
+    visualizer = Visualizer(pd.read_csv("data/train_.csv"))
+    return visualizer.get_data_info()
