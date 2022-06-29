@@ -59,3 +59,9 @@ with open(f"{OUTPUT_PATH}/{MODAL_NAME}/{MODAL_NAME}.pskl", "wb") as modal_file:
     pickle.dump(estimator, modal_file)
 
 data.to_csv(f"{OUTPUT_PATH}/{MODAL_NAME}/{MODAL_NAME}.csv")
+
+# training code
+# data = pd.read_csv("modal/intermediary_files/csv_filled_null.csv")
+# DataTransformer.fit(data)
+# with open(f"modal/modal.pskl", "wb") as modal_file:
+#     pickle.dump(DataTransformer, modal_file)
