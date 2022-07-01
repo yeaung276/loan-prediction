@@ -3,13 +3,13 @@ import unittest
 import pickle
 import pandas as pd
 import numpy as np
-from modal.LR_modal import DataTransformer
+from modal.sklearn_modals.LR_modal import DataTransformer
 
 
 class TestDataTransformer(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        data = pd.read_csv("./tests/mocks/test.csv")
+        data = pd.read_csv("./tests/mocks/modified_test.csv")
         DataTransformer.fit(data)
         with open(f"./tests/modal.pskl", "wb") as modal_file:
             pickle.dump(DataTransformer, modal_file)

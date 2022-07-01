@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.compose import ColumnTransformer
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
 
 ###############################################
 # Simple Linear Regression With one hot encoding for categorical data and
@@ -36,5 +36,5 @@ DataTransformer = ColumnTransformer(
 )
 
 LinearModal = Pipeline(
-    steps=[("transformer", DataTransformer), ("estimator", LinearRegression())]
+    steps=[("transformer", DataTransformer), ("estimator", LogisticRegression())]
 )
