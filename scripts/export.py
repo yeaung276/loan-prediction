@@ -20,3 +20,7 @@ def export(args: list[str] = sys.argv) -> None:
         )
     except FileNotFoundError as err:
         raise Exception('Modal with given name does not exist!') from err
+
+
+if __name__ == '__main__':
+    export()

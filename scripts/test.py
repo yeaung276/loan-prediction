@@ -8,3 +8,6 @@ def test() -> None:
     `poetry run python -u -m unittest discover`
     """
     subprocess.run(["python", "-u", "-m", "unittest", "discover"])
+
+if __name__ == '__main__':
+    test()
