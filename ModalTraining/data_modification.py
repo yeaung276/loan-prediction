@@ -4,7 +4,8 @@ import pandas as pd
 SAVE_INTRMEDIARY_FILES = False
 RAW_DATA_PATH = "data"
 INTERMEDIATE_FILE_PATH = "modal/intermediary_files"
-FINAL_FILE_PATH = "modal/datas"
+MODIFIED_FILE_PATH = "modal/modified_data"
+OUTPUT_STEP = 3
 
 DROP_COLUMNS = ["Loan_ID"]
 MEANS_COLUMNS = ["LoanAmount", "ApplicantIncome", "CoapplicantIncome"]
@@ -82,20 +83,28 @@ def data_nomalization_div_by_mean(dataframe, columns):
         dataframe.to_csv(f"{INTERMEDIATE_FILE_PATH}/csv_normalized.csv")
 
 
-# step: 1
 csv_train = pd.read_csv(f"{RAW_DATA_PATH}/train_.csv")
-# step: 2
+# step: 1
 drop_columns(csv_train, DROP_COLUMNS)
-# step: 3
+if OUTPUT_STEP == 1:
+    csv_train.to_csv(f"{MODIFIED_FILE_PATH}/train_.csv", index=False)
+# step: 2
 fill_null_values_columns(csv_train, MEANS_COLUMNS, MODE_COLUMNS)
+if OUTPUT_STEP == 2:
+    csv_train.to_csv(f"{MODIFIED_FILE_PATH}/train_.csv", index=False)
+# step: 3
+encode_label(csv_train, LABEL_COLUMN)
+if OUTPUT_STEP == 3:
+    csv_train.to_csv(f"{MODIFIED_FILE_PATH}/train_.csv", index=False)
 # step: 4
 csv_train = encode_categorical(csv_train, CATEGORICAL_COLUMNS)
+if OUTPUT_STEP == 4:
+    csv_train.to_csv(f"{MODIFIED_FILE_PATH}/train_.csv", index=False)
 # step: 5
-encode_label(csv_train, LABEL_COLUMN)
-# step: 6
 data_nomalization_div_by_mean(csv_train, NORMALIZE_COLUMN)
+if OUTPUT_STEP == 5:
+    csv_train.to_csv(f"{MODIFIED_FILE_PATH}/train_.csv", index=False)
 
-csv_train.to_csv(f"{FINAL_FILE_PATH}/train_.csv")
 
 print(csv_train.head())
 print(csv_train.isnull().sum())

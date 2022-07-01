@@ -11,7 +11,7 @@
   "python.linting.pylintEnabled": true,
   "python.linting.mypyEnabled": true,
   "python.linting.lintOnSave": true,
-  "python.linting.ignorePatterns": ["modal/*.py"],
+  "python.linting.ignorePatterns": ["ModalTraining/*.py"],
   "python.formatting.provider": "black",
   "mypy.runUsingActiveInterpreter": true,
 }

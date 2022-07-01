@@ -29,6 +29,7 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-test = 'tests.visualization_test:test'
+test = 'scripts.test:test'
+export = 'scripts.export:export'
 start = 'LoanPrediction.main:main'
 dev = 'LoanPrediction.main:dev'

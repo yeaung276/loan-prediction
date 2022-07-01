@@ -1,0 +1,10 @@
+Modal Summary
+==============
+name: logistic_regression_with_pipeline
+description: first test with pipe line
+column_modification: NONE
+columns: ['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', 'ApplicantIncome', 'CoapplicantIncome', 'LoanAmount', 'Loan_Amount_Term', 'Credit_History', 'Property_Area']
+label: Loan_Status
+accuracy: 0.8048780487804879
+roc_accu: 0.7239738251041046
+End
