@@ -4,10 +4,12 @@
 name: ci-python-unittest
 
 on:
-  push:
+  workflow_run:
+    workflows: ["Update requirements.txt [bot]"]
     branches:
       - "**"
-      - "!master"
+    types:
+      - completed
 
 jobs:
   build:
@@ -17,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r ./request_handler/requirements.txt
+          pip install -r /requirements.txt
       - name: Test with unittest
         run: |
           python scripts/test.py'
