@@ -20,4 +20,4 @@ jobs:
           pip install -r requirements.txt
       - name: Test with unittest
         run: |
-          python scripts/test.py'
+          python scripts/test.py
