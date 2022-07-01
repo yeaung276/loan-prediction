@@ -4,12 +4,10 @@
 name: ci-python-unittest
 
 on:
-  workflow_run:
-    workflows: ["Update requirements.txt [bot]"]
+  push:
     branches:
       - "**"
-    types:
-      - completed
+      - "!master"
 
 jobs:
   build:
