@@ -4,13 +4,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, roc_curve, roc_auc_score
-from ModalTraining.sklearn_modals.LR_modal import LinearModal
+from ModelTraining.sklearn_models.LR_model import LinearModel
 
 MODAL_NAME = "logistic_regression_with_pipeline"
 MODAL_DESCRIPTION = "first test with pipe line"
-TRAINING_DATA_PATH = "modal/modified_data/train_.csv"
+TRAINING_DATA_PATH = "ModelTraining/modified_data/train_.csv"
 Y_LABEL = "Loan_Status"
-OUTPUT_PATH = "modal/output"
+OUTPUT_PATH = "ModelTraining/output"
 
 data = pd.read_csv(TRAINING_DATA_PATH)
 
@@ -22,12 +22,12 @@ D_Y = data[Y_LABEL]
 X, X_test, Y, Y_test = train_test_split(D_X, D_Y, test_size=0.2)
 
 # modal training
-LinearModal.fit(X, Y)
+LinearModel.fit(X, Y)
 
 # modal evaluation
-Y_p = LinearModal.predict(X_test)
+Y_p = LinearModel.predict(X_test)
 accuracy = accuracy_score(Y_test, Y_p)
-Y_pp = LinearModal.predict_proba(X_test)[:, 1]
+Y_pp = LinearModel.predict_proba(X_test)[:, 1]
 fpr, tpr, _ = roc_curve(Y_test, Y_pp)
 auc = roc_auc_score(Y_test, Y_pp)
 
@@ -60,7 +60,7 @@ plt.savefig(f"{OUTPUT_PATH}/{MODAL_NAME}/{MODAL_NAME}.png")
 
 # saving the modal
 with open(f"{OUTPUT_PATH}/{MODAL_NAME}/{MODAL_NAME}.pskl", "wb") as modal_file:
-    pickle.dump(LinearModal, modal_file)
+    pickle.dump(LinearModel, modal_file)
 
 # saving the modal info
 data.to_csv(f"{OUTPUT_PATH}/{MODAL_NAME}/{MODAL_NAME}.csv", index=False)

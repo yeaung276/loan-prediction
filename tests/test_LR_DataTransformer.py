@@ -3,7 +3,7 @@ import unittest
 import pickle
 import pandas as pd
 import numpy as np
-from modal.sklearn_modals.LR_modal import DataTransformer
+from ModelTraining.sklearn_models.LR_model import DataTransformer
 
 
 class TestDataTransformer(unittest.TestCase):

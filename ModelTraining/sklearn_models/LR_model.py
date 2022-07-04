@@ -35,6 +35,6 @@ DataTransformer = ColumnTransformer(
     ]
 )
 
-LinearModal = Pipeline(
+LinearModel = Pipeline(
     steps=[("transformer", DataTransformer), ("estimator", LogisticRegression())]
 )

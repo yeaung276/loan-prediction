@@ -1,19 +1,21 @@
 import pickle
 import pandas as pd
-from LoanPrediction.core.Entity.est_data import ScikitModel
+from LoanPrediction.core.Entity.est_data import X, PredictionModel, PredictionResult
 
 
-MODAL_PATH = "../modal/logistic_regression_with_mean_normalization.pskl"
+MODEL_PATH = "../model/model.pskl"
 
 
 class Estimator:
-    modal: ScikitModel
+    model: PredictionModel
 
     def __init__(self) -> None:
-        if self.modal is None:
-            with open(MODAL_PATH, "rb") as modal_file:
-                self.modal = pickle.load(modal_file)
+        if self.model is None:
+            with open(MODEL_PATH, "rb") as model_file:
+                self.model = pickle.load(model_file)
 
-    def predict(self, X: pd.DataFrame) -> int:
-        prediction = self.modal.predict(X)
-        return int(prediction)
+    def predict(self, input: X) -> PredictionResult:
+        X = pd.DataFrame(input.dict())
+        prediction = self.model.predict(X)
+        probability = self.model.predict_prob(X)
+        return PredictionResult(result=prediction, prob=probability)

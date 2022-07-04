@@ -3,8 +3,8 @@ import pandas as pd
 # configs
 SAVE_INTRMEDIARY_FILES = False
 RAW_DATA_PATH = "data"
-INTERMEDIATE_FILE_PATH = "modal/intermediary_files"
-MODIFIED_FILE_PATH = "modal/modified_data"
+INTERMEDIATE_FILE_PATH = "ModelTraining/intermediary_files"
+MODIFIED_FILE_PATH = "ModelTraining/modified_data"
 OUTPUT_STEP = 3
 
 DROP_COLUMNS = ["Loan_ID"]
