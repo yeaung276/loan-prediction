@@ -1,13 +1,14 @@
 import pandas as pd
-from typing import Protocol
+from typing import List, Protocol
 from pydantic import BaseModel
+from LoanPrediction.core.model.interface import InputData
 
 
 class PredictionModel(Protocol):
-    def predict(self, X: pd.DataFrame) -> int:
+    def predict(self, X: pd.DataFrame) -> List[int]:
         ...
 
-    def predict_prob(self, X: pd.DataFrame) -> float:
+    def predict_proba(self, X: pd.DataFrame) -> List[List[float]]:
         ...
 
 
@@ -16,5 +17,5 @@ class PredictionResult(BaseModel):
     prob: float
 
 
-class X(BaseModel):
+class X(InputData):
     ...

@@ -13,4 +13,4 @@ class InputData(BaseModel):
     LoanAmount: float
     Loan_Amount_Term: float
     Credit_History: bool
-    ProPerty_Area: Literal["Urban", "Semiurban", "Rural"]
+    Property_Area: Literal["Urban", "Semiurban", "Rural"]
