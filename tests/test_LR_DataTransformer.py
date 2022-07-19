@@ -3,7 +3,7 @@ import unittest
 import pickle
 import pandas as pd
 import numpy as np
-from modal.sklearn_modals.LR_modal import DataTransformer
+from ModelTraining.sklearn_models.LR_model import DataTransformer
 
 
 class TestDataTransformer(unittest.TestCase):
@@ -25,19 +25,21 @@ class TestDataTransformer(unittest.TestCase):
     def test_data_transformation(self) -> None:
         result = self.transformer.transform(
             pd.DataFrame(
-                {
-                    "Gender": ["Male"],
-                    "Married": ["No"],
-                    "Dependents": [0],
-                    "Education": ["Graduate"],
-                    "Self_Employed": ["No"],
-                    "ApplicantIncome": [5849],
-                    "CoapplicantIncome": [0],
-                    "LoanAmount": [146.4112],
-                    "Loan_Amount_Term": [360],
-                    "Credit_History": [1],
-                    "Property_Area": ["Urban"],
-                }
+                [
+                    {
+                        "Married": "No",
+                        "Gender": "Male",
+                        "Education": "Graduate",
+                        "Dependents": 0,
+                        "ApplicantIncome": 5849,
+                        "Self_Employed": "No",
+                        "CoapplicantIncome": 0,
+                        "Loan_Amount_Term": 360,
+                        "LoanAmount": 146.4112,
+                        "Credit_History": 1,
+                        "Property_Area": "Urban",
+                    }
+                ]
             )
         )
 
