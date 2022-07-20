@@ -1,4 +1,4 @@
-from LoanPrediction.core.Exception.base_exception import BaseCoreException
+from core.Exception.base_exception import BaseCoreException
 
 
 class ColumnNotFound(BaseCoreException):

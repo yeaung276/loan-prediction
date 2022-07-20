@@ -1,7 +1,7 @@
 from fastapi import APIRouter
-from LoanPrediction.application.requests.predict_data import Record
-from LoanPrediction.application.responses.response import Response
-from LoanPrediction.core.Service.estimation import Estimator
+from application.requests.predict_data import Record
+from application.responses.response import Response
+from core.Service.estimation import Estimator
 
 predictionServices = APIRouter(prefix="/prediction", tags=["prediction"])
 

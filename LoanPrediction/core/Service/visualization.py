@@ -3,8 +3,8 @@ from matplotlib.figure import Figure
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from LoanPrediction.core.Entity.graph import Graph
-from LoanPrediction.core.Exception import ColumnNotFound
+from core.Entity.graph import Graph
+from core.Exception import ColumnNotFound
 
 
 class Visualizer:

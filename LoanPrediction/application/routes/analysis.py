@@ -1,10 +1,10 @@
 from typing import Any, Dict
 import pandas as pd
 from fastapi import APIRouter, UploadFile
-from LoanPrediction.application.depends.cookies import get_session, get_session_mock
-from LoanPrediction.application.responses import GraphResponse, Response, NotFound
-from LoanPrediction.core.Exception import ColumnNotFound
-from LoanPrediction.core.Service.visualization import Visualizer
+from application.depends.cookies import get_session, get_session_mock
+from application.responses import GraphResponse, Response, NotFound
+from core.Exception import ColumnNotFound
+from core.Service.visualization import Visualizer
 
 analysisServices = APIRouter(prefix="/analysis", tags=["analysis"])
 

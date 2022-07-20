@@ -1,7 +1,7 @@
 import pandas as pd
 from typing import List, Protocol
 from pydantic import BaseModel
-from LoanPrediction.core.model.interface import InputData
+from core.model.interface import InputData
 
 
 class PredictionModel(Protocol):

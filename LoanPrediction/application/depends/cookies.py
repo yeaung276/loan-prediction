@@ -1,6 +1,6 @@
 from fastapi import Cookie, HTTPException, status
-from LoanPrediction.infrastructure.exceptions.sessions_exception import SessionNotExist
-from LoanPrediction.infrastructure.sessions import Session, SessionsHolder
+from infrastructure.exceptions.sessions_exception import SessionNotExist
+from infrastructure.sessions import Session, SessionsHolder
 
 
 def get_session(session_id: str = Cookie(None)) -> Session:

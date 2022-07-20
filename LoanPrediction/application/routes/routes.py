@@ -1,7 +1,7 @@
 from fastapi import APIRouter
-from LoanPrediction.application.routes.session import sessionServices
-from LoanPrediction.application.routes.analysis import analysisServices
-from LoanPrediction.application.routes.predict import predictionServices
+from application.routes.session import sessionServices
+from application.routes.analysis import analysisServices
+from application.routes.predict import predictionServices
 
 mainRouter = APIRouter()
 
