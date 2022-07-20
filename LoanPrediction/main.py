@@ -6,8 +6,6 @@ import LoanPrediction.config as config
 
 
 def main(args: List[str] = sys.argv) -> None:
-    path = os.path.dirname(os.path.realpath(__file__))
-    os.chdir(path)
     uvicorn.run(
         "application.app:loanPredictionApp",
         host=args[1],
@@ -17,10 +15,6 @@ def main(args: List[str] = sys.argv) -> None:
 
 
 def dev() -> None:
-    print(os.getcwd())
-    path = os.path.dirname(os.path.realpath(__file__))
-    os.chdir(path)
-    print(os.getcwd())
     uvicorn.run(
         "application.app:loanPredictionApp",
         host="0.0.0.0",
