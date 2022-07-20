@@ -31,5 +31,4 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.scripts]
 test = 'scripts.test:test'
 exportModel = 'scripts.export:export'
-start = 'LoanPrediction.main:main'
-dev = 'LoanPrediction.main:dev'
+dev = 'scripts.dev:dev'
