@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from LoanPrediction.application.routes.routes import mainRouter
+from application.routes.routes import mainRouter
 
 loanPredictionApp = FastAPI()
 

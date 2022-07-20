@@ -1,9 +1,9 @@
 import pickle
 import pandas as pd
-from LoanPrediction.core.Entity.est_data import X, PredictionModel, PredictionResult
+from core.Entity.est_data import X, PredictionModel, PredictionResult
 
 
-MODEL_PATH = "LoanPrediction/core/model/model.pskl"
+MODEL_PATH = "core/model/model.pskl"
 
 
 class Estimator:
