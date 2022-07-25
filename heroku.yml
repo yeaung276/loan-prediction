@@ -1,4 +1,3 @@
 build:
   docker:
-    build-context: .
     web: build/Dockerfile
