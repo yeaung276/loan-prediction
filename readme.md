@@ -14,3 +14,5 @@ Run tests<br>
 
 Docs can be view on<br>
 `localhost:3000/docs`
+
+heroku link - [link](https://loan-prediction-ya.herokuapp.com/)
