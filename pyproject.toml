@@ -32,3 +32,4 @@ build-backend = "poetry.core.masonry.api"
 test = 'scripts.test:test'
 exportModel = 'scripts.export:export'
 dev = 'scripts.dev:dev'
+build = 'scripts.build:build'

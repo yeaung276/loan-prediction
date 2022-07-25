@@ -6,8 +6,8 @@ Installing requirements<br>
 Running the server for dev<br>
 `poetry run dev`
 
-Running the server for prod<br>
-`poetry run start`
+Build the server<br>
+`poetry run build`
 
 Run tests<br>
 `poetry run tests`

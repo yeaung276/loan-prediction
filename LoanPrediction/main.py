@@ -1,12 +1,20 @@
 from typing import List
 import argparse
 import uvicorn
-import LoanPrediction.config as config
+import config
 
-parser = argparse.ArgumentParser(description='LoanPrediction web application')
-parser.add_argument('--host', type=str, nargs='?', default='0.0.0.0', help='host to run the application')
-parser.add_argument('--port', type=int, nargs='?', default=config.default_port, help='port the application listen')
-parser.add_argument('--dev', action='store_true', help="is in dev mode or prod mode")
+parser = argparse.ArgumentParser(description="LoanPrediction web application")
+parser.add_argument(
+    "--host", type=str, nargs="?", default="0.0.0.0", help="host to run the application"
+)
+parser.add_argument(
+    "--port",
+    type=int,
+    nargs="?",
+    default=config.default_port,
+    help="port the application listen",
+)
+parser.add_argument("--dev", action="store_true", help="is in dev mode or prod mode")
 args = parser.parse_args()
 
 
