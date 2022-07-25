@@ -1,3 +1,4 @@
 build:
   docker:
     web: build/Dockerfile
+    context: .
