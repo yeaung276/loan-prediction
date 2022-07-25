@@ -5,12 +5,12 @@ USER root
 ENV PORT=$port
 WORKDIR ./usr/app/
 
-COPY ../requirements.txt ./
+COPY ./requirements.txt ./
 
 RUN pip install pip --upgrade \
     && pip install -r requirements.txt
 
-COPY ../LoanPrediction .
+COPY ./LoanPrediction .
 
 EXPOSE $PORT
 
